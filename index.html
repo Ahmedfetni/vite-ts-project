@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE-edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="src/css/style.css">
+    <script type="module" src="js/main.js" defer></script>
+    <title>My List </title>
+  </head>
+  <body>
+
+
+    <main>
+      <h1 class="offscreen">My List</h1>
+      <section class="newItemEntry">
+        <h2 class="offscreen">New Item Entry</h2>
+        <form class="newItemEntry_form">
+          <label for="newItem" class="offscreen">Enter a new todo item</label>
+          <input class="newItemEntry_input" type="text" maxlength="40" autocomplete="off" placeholder="add new Item">
+          <button id="additem" class="button newItemEntry_button" title="Add new item" aria-label="Add new item to list">Add new item</button>
+        </form>
+      </section>
+
+      <!--  Now the part that contain the list container -->
+
+      <section class="listContainer">
+        <header class="listTitle">
+          <h2 id="listName">list</h2>
+          <button id="clearItemButton" class="button listTitle_button" title="Clear the list" aria-label="Remove all items from the list">
+            clear
+          </button>
+
+        </header>
+        <hr/>
+
+        <ui id="listItems">
+
+        </ui>
+      </section>
+
+
+
+    </main>
+    
+  </body>
+</html>
