@@ -24,7 +24,7 @@ export default class ListTemplate implements DOMList {
 
     
     clear(): void {
-        throw new Error("Method not implemented.");
+        this._ui.innerHTML ='';
     }
 
     render(fullList: FullList): void {
