@@ -24,6 +24,7 @@ export default class ListTemplate implements DOMList {
 
     
     clear(): void {
+        
         this._ui.innerHTML ='';
     }
 
@@ -38,11 +39,14 @@ export default class ListTemplate implements DOMList {
                 check.id=e.id
                 check.tabIndex = 0
                 check.checked = e.checked
+                
+
+                listItem.append(check)
+
                 check.addEventListener('change',()=>{
                     e.checked = !e.checked
                     fullList.save()
                 })
-                listItem.append(check)
 
                 const label = document.createElement("label") as HTMLLabelElement
                 label.htmlFor = e.id
@@ -53,11 +57,16 @@ export default class ListTemplate implements DOMList {
 
                 delButton.className = 'button'
                 delButton.textContent = 'X'
+                
+                listItem.append(delButton)
+                
                 delButton.addEventListener('click',()=>{
                     fullList.removeItem(e.id)
+                    fullList.save()
+                    this.clear()
                     this.render(fullList)
                 })
-                listItem.append(delButton)
+                
                 this._ui.append(listItem)
                  
             }

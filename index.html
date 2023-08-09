@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE-edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="src/css/style.css">
-    <script type="module" src="js/main.js" defer></script>
+    <script type="module" src="src/main.ts" defer></script>
     <title>My List </title>
   </head>
   <body>
@@ -15,9 +15,9 @@
       <h1 class="offscreen">My List</h1>
       <section class="newItemEntry">
         <h2 class="offscreen">New Item Entry</h2>
-        <form class="newItemEntry_form">
+        <form class="newItemEntry_form" id="itemEntryForm">
           <label for="newItem" class="offscreen">Enter a new todo item</label>
-          <input class="newItemEntry_input" type="text" maxlength="40" autocomplete="off" placeholder="add new Item">
+          <input class="newItemEntry_input" id="newItem" type="text" maxlength="40" autocomplete="off" placeholder="add new Item">
           <button id="additem" class="button newItemEntry_button" title="Add new item" aria-label="Add new item to list">Add new item</button>
         </form>
       </section>

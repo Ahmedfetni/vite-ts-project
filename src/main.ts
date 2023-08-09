@@ -1,15 +1,15 @@
 import './css/style.css'
 import FullList from './model/FullList'
 import ListItem from './model/ListItem'
-import ListTemplate from './templates/listTemplate'
-import { uuid } from 'uuidv4';
+import ListTemplate from './templates/ListTemplate'
+import { v4 as uuid } from 'uuid';
 
 const initApp =():void =>{
 
     const fullList = FullList.instance;
     const template = ListTemplate.instance;
 
-    const itemEntryForm = document.getElementById("itemEnteryForm") as HTMLFormElement;
+    const itemEntryForm = document.getElementById("itemEntryForm") as HTMLFormElement;
 
     itemEntryForm.addEventListener('submit',(event:SubmitEvent):void=>{
         event.preventDefault();
@@ -22,6 +22,8 @@ const initApp =():void =>{
         const itemId = uuid();
         const item = new ListItem(itemId,newEntryText);
         fullList.addItem(item);
+        fullList.save()
+        template.clear()
         template.render(fullList)
 
 
