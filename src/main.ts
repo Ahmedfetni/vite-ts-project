@@ -2,6 +2,7 @@ import './css/style.css'
 import FullList from './model/FullList'
 import ListItem from './model/ListItem'
 import ListTemplate from './templates/listTemplate'
+import { uuid } from 'uuidv4';
 
 const initApp =():void =>{
 
@@ -12,7 +13,18 @@ const initApp =():void =>{
 
     itemEntryForm.addEventListener('submit',(event:SubmitEvent):void=>{
         event.preventDefault();
-        //TODO
+        const input = document.getElementById('newItem') as HTMLInputElement;
+
+        const newEntryText:string = input.value.trim();
+
+        if(!newEntryText) return 
+
+        const itemId = uuid();
+        const item = new ListItem(itemId,newEntryText);
+        fullList.addItem(item);
+        template.render(fullList)
+
+
     });
 
     const clearItems =  document.getElementById("clearItemButton") as HTMLButtonElement;
